@@ -1,0 +1,21 @@
+{
+  "name": "elevate",
+  "version": "1.0.0",
+  "description": "This project is a personal website builder specifically for resumes. The tool will allow users to create and customize a personal introduction page with professional details, showcasing their skills, experience, and projects in a visually appealing manner.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./styles/styles.css -o ./dist/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RevaLaxmi/Elevate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RevaLaxmi/Elevate/issues"
+  },
+  "homepage": "https://github.com/RevaLaxmi/Elevate#readme"
+}
