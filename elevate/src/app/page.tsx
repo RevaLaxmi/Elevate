@@ -1,9 +1,8 @@
-// src/app/page.tsx
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import CVUploader from "@/components/CVUploader";  // Ensure this is correctly imported
 
 export default function LandingPage() {
   const [headerSticky, setHeaderSticky] = useState(false);
@@ -78,6 +77,15 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Upload CV Section */}
+      <section className="w-full flex flex-col items-center py-12 bg-gray-50">
+        <h2 className="text-2xl font-bold mb-4">Upload Your CV</h2>
+        <p className="text-gray-600 mb-6">
+          Kickstart your professional website by uploading your resume.
+        </p>
+        <CVUploader />
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-100 py-8">
         <div className="container mx-auto px-4 text-center">
@@ -89,7 +97,116 @@ export default function LandingPage() {
 }
 
 
+/*  
 
+// src/app/page.tsx
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+export default function LandingPage() {
+  const [headerSticky, setHeaderSticky] = useState(false);
+
+  const handleScroll = () => {
+    setHeaderSticky(window.scrollY > 50);
+  };
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", handleScroll);
+  }
+
+  return (
+    <div className="font-sans antialiased">
+      {}
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          headerSticky ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-xl font-bold">ELEVATE</div>
+          <div>
+            <Button className="mr-4">Login</Button>
+            <Button variant="outline">Sign Up</Button>
+          </div>
+        </div>
+      </header>
+
+      {}
+      <section className="h-screen bg-gray-50 flex flex-col justify-center items-center text-center">
+        <h1 className="text-5xl font-bold mb-4">ELEVATE</h1>
+        <p className="text-lg text-gray-600 mb-6">
+          The quickest way to create your personal website.
+        </p>
+        <Button size="lg">Get Started</Button>
+      </section>
+
+      {}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Elevate?</h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {}
+            <div className="text-center">
+              <div className="text-4xl mb-4">🎨</div>
+              <h3 className="text-xl font-bold mb-2">Choose Your Template</h3>
+              <p className="text-gray-600">
+                Pick from a selection of sleek, professionally-designed templates.
+              </p>
+            </div>
+
+            {}
+            <div className="text-center">
+              <div className="text-4xl mb-4">🤖</div>
+              <h3 className="text-xl font-bold mb-2">AI-Generated Content</h3>
+              <p className="text-gray-600">
+                Let AI generate professional text tailored to your CV or portfolio.
+              </p>
+            </div>
+
+            {}
+            <div className="text-center">
+              <div className="text-4xl mb-4">📄</div>
+              <h3 className="text-xl font-bold mb-2">Upload Your CV</h3>
+              <p className="text-gray-600">
+                Upload your CV, and we'll do the rest. Create a personal website in minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {}
+      <footer className="bg-gray-100 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-600">&copy; 2025 Elevate. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+Use the CVUploader component in your landing page or a dedicated section where the upload feature is showcased.
+
+import CVUploader from "@/components/CVUploader";
+
+export default function Home() {
+  return (
+    <main className="flex flex-col items-center space-y-12">
+      {}
+      <section className="w-full flex flex-col items-center py-12 bg-gray-50">
+        <h2 className="text-2xl font-bold mb-4">Upload Your CV</h2>
+        <p className="text-gray-600 mb-6">Kickstart your professional website by uploading your resume.</p>
+        <CVUploader />
+      </section>
+    </main>
+  );
+}
+
+*/
 
 /* BELOW IS THE DEFAULT NEXT.JS LANDING PAGE */
 

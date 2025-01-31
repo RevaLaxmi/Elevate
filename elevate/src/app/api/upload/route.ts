@@ -64,8 +64,7 @@ import { NextResponse } from "next/server";
 import formidable from "formidable";
 import fs from "fs";
 import pdf from "pdf-parse"; // For text extraction
-import { Configuration, OpenAIApi } from "openai";
-
+import OpenAI from "openai";
 
 export const config = {
   api: {
@@ -74,11 +73,9 @@ export const config = {
 };
 
 // Initialize OpenAI API client
-const openai = new OpenAIApi(
-  new Configuration({
-    apiKey: process.env.OPENAI_API_KEY, // Add your OpenAI API key in .env.local
-  })
-);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // Ensure this is correctly set in .env.local
+});
 
 export async function POST(req: Request) {
   const form = new formidable.IncomingForm({
@@ -128,35 +125,45 @@ function cleanExtractedText(text: string): string {
   return text.replace(/\s+/g, " ").trim(); // Remove excessive whitespace
 }
 
+type ChatCompletionResponse = {
+    choices: {
+      message: {
+        role: string;
+        content: string;
+      };
+    }[];
+  };
+
 // Function to parse the CV using OpenAI
 async function parseCVWithAI(text: string) {
-  const prompt = `
-    Parse the following CV text into the following sections:
-    - Name
-    - Email
-    - Phone
-    - LinkedIn
-    - GitHub
-    - Education
-    - Experience
-    - Skills
-    - Languages
-    - Interests
-
-    Text: ${text}
-  `;
-
-  const response = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: prompt,
-    max_tokens: 1500,
-  });
-
-  // Attempt to parse and return JSON response
-  try {
-    return JSON.parse(response.data.choices[0].text.trim());
-  } catch (error) {
-    console.error("Failed to parse AI response:", error);
-    throw new Error("Failed to parse AI response.");
+    const response = await openai.chat.completions.create({
+      model: "gpt-4", // Or "gpt-3.5-turbo"
+      messages: [
+        { role: "system", content: "You are a helpful assistant that parses CV data." },
+        { role: "user", content: `
+          Parse the following CV text into the following sections:
+          - Name
+          - Email
+          - Phone
+          - LinkedIn
+          - GitHub
+          - Education
+          - Experience
+          - Skills
+          - Languages
+          - Interests
+  
+          Text: ${text}
+        ` },
+      ],
+      max_tokens: 1500,
+    });
+  
+  // Safely access message content, or throw an error if it's not available
+  const messageContent = response.choices?.[0]?.message?.content?.trim();
+  if (!messageContent) {
+    throw new Error("OpenAI API response is incomplete or invalid.");
   }
+
+  return messageContent;
 }
