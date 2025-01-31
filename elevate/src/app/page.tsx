@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import CVUploader from "@/components/CVUploader";  // Ensure this is correctly imported
+import FileUpload from "@/components/FileUpload";  // Ensure this is correctly imported
 
 export default function LandingPage() {
   const [headerSticky, setHeaderSticky] = useState(false);
@@ -83,7 +83,7 @@ export default function LandingPage() {
         <p className="text-gray-600 mb-6">
           Kickstart your professional website by uploading your resume.
         </p>
-        <CVUploader />
+        <FileUpload />
       </section>
 
       {/* Footer */}

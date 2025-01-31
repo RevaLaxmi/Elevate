@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/RevaLaxmi/Elevate/issues"
   },
-  "homepage": "https://github.com/RevaLaxmi/Elevate#readme"
+  "homepage": "https://github.com/RevaLaxmi/Elevate#readme",
+  "dependencies": {
+    "formidable": "^3.5.2",
+    "next": "^15.1.6",
+    "openai": "^4.82.0",
+    "pdf-parse": "^1.1.1"
+  }
 }
