@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import FileUpload from "@/components/FileUpload";  // Ensure this is correctly imported
+import React, { useState } from "react";
+import { Button } from "../components/ui/button";
+import FileUpload from "../components/FileUpload";
 
 export default function LandingPage() {
   const [headerSticky, setHeaderSticky] = useState(false);

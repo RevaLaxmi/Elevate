@@ -1,25 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
-const FileUpload = () => {
+export default function FileUpload() {
   const [file, setFile] = useState<File | null>(null);
-  const [uploadStatus, setUploadStatus] = useState<string>("");
+  const [uploading, setUploading] = useState(false);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFile(e.target.files[0]);
-      setUploadStatus(""); // Reset upload status when a new file is selected
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile && selectedFile.type === "application/pdf") {
+      setFile(selectedFile);
+    } else {
+      alert("Please upload a valid PDF file.");
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleUpload = async () => {
     if (!file) {
-      setUploadStatus("Please select a file to upload.");
+      alert("No file selected.");
       return;
     }
 
+    setUploading(true);
     const formData = new FormData();
     formData.append("file", file);
 
@@ -29,37 +31,26 @@ const FileUpload = () => {
         body: formData,
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to upload file.");
-      }
-
       const result = await response.json();
-      setUploadStatus(result.message || "File uploaded successfully!");
+      alert(result.message);
     } catch (error) {
-      console.error("Error uploading file:", error);
-      setUploadStatus("Error uploading file. Please try again.");
+      console.error("Upload failed:", error);
+      alert("Upload failed. Try again.");
+    } finally {
+      setUploading(false);
     }
   };
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={handleFileChange}
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Upload CV
-        </button>
-      </form>
-      {uploadStatus && <p>{uploadStatus}</p>}
+      <input type="file" accept="application/pdf" onChange={handleFileChange} />
+      <button
+        className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+        onClick={handleUpload}
+        disabled={!file || uploading}
+      >
+        {uploading ? "Uploading..." : "Upload PDF"}
+      </button>
     </div>
   );
-};
-
-export default FileUpload;
+}
