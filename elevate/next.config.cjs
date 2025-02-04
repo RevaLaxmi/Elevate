@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    turbo: {}, // Use an empty object instead of `true`
+    turbo: false, // Use an empty object instead of `true` {}
   },
 };
 
