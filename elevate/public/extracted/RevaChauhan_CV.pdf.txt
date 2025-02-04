@@ -1,0 +1,79 @@
+
+
+Reva Chauhan 
+Reva.chauhan1@gmail.com | (+91) 9773639004 | Github | LinkedIn | Website | Nationality: American 
+ 
+PROFESSIONAL SUMMARY 
+—————————————————————————————————————————————————————————————— 
+Solutions-oriented AI Engineer with growing experience in computer vision, machine learning, and hardware integration. Skilled in developing 
+real-time tracking systems, optimizing drone stabilization, and deploying AI models using TensorFlow and PyTorch. Experienced in web 
+development, data analysis, and blockchain solutions, with a proven ability to blend software and hardware for systems.  
+ 
+EMPLOYMENT HISTORY 
+—————————————————————————————————————————————————————————————— 
+Junior AI Engineer, Johnnette Technologies                Aug 2024 - Jan 2025 
+● Real-Time Object Detection and Tracking:  
+Created and implemented real-time object detection and tracking systems. Using computer vision models like YOLO and DeepSORT, 
+combining Kalman filters with ORB keypoint detection to improve precision in dynamic scenarios. 
+● Model Predictive Control, optimized stabilization: 
+Designed and optimized a Model Predictive Control (MPC) algorithm to outperform traditional PID controllers in drone stabilization. 
+● Hardware Development and Integration:  
+Gaining hands-on experience with drone structures, Ground Control Systems (GCS), Raspberry Pi, and GPIO pins, learning to 
+assemble and configure hardware components while ensuring seamless interaction with software systems. 
+Automation engineer intern (DataPod), Ankit Malik            May 2023 - June 2023 
+● Cryptocurrency Market Automation Tool:  
+Built an automated tool for cryptocurrency market analysis using Python and Selenium, reducing manual data extraction and 
+providing real-time price and trend updates. 
+UI/UX web developer and designer internship, Heads up for Tails           June 2022 - Aug 2022 
+● Responsive Website Development:  
+Designed and developed responsive websites from scratch, starting with sketches and wireframes in Figma and implementing them 
+using Flutter, HTML, CSS, and JavaScript. 
+Remote internship in data analysis, Deutsche Bank              Oct 2022 - Dec 2022 
+● SQL Database Automation and Analysis:  
+Automated SQL database operations to log and query transactional data efficiently. Analyzed user transaction patterns to optimize 
+front-end interfaces and improve system usability. 
+ 
+EDUCATION 
+—————————————————————————————————————————————————————————————— 
+ASHOKA UNIVERSITY 
+Bachelor of Science (Honors) in Computer Science,         Aug 2021 - March 2024 
+ 
+Key Projects: 
+● MPC vs PID testing:  
+Designed and optimized a project connecting with MAVLink to compare MPC and PID methods for optimized flight control. 
+● Real-Time Object Detection and Tracking:  
+Created a real-time object detection and tracking system using  YOLO, DeepSORT, Kalman filters, and ORB keypoint detection. 
+● Hashing and web scraping:  
+Built an automated tool using selenium for a web scraper that creates and redirects cryptocurrency wallets, incorporating 
+cryptographic hashing for enhanced security 
+● Blockchain and Cryptocurrencies:  
+Developed a secure patient-doctor privacy information management system using Hyperledger Fabric for blockchain integration and 
+cryptocurrencies for secure transactions. Designed and implemented front-end connections as well.  
+● Biotech research Project:  
+Implemented R and Python for a tracking algorithm regarding the population genetics of genetic disorders and the demographic 
+processes that have shaped human populations.  
+● Restaurant Management System:  
+Created a system that keeps track of customer/admin users, edits bills/menu pricing, and allows alterations following the same. 
+● Valentine Fullstack development project:  
+Developed processes including automating GitHub accounts for code layers, designs using Figma, and converting designs to code. 
+● Personal website:  
+Developed a responsive personal website using HTML, CSS, JavaScript, and animations. 
+ 
+Positions held:  
+● Teaching Assistant of “Design and Analysis of Algorithms” to Professor Anirban Sen & “Introduction to Computer Programming”, to 
+Professor Debayan Gupta.  
+● Head of the technical team, Women in Computer Science. Head of club & technical team, Animal Welfare.  
+ 
+SKILLS & INTERESTS 
+—————————————————————————————————————————————————————————————— 
+Technical: Machine Learning (TensorFlow, PyTorch), Object detection & tracking (YOLO, DeepSORT, Kalman filters, ORB), Model Predictive 
+Control (MPC), Computer Vision, Drone & Hardware Integration (Raspberry Pi, GCS), Web Development (HTML, CSS, JavaScript, Flutter), 
+Blockchain (Hyperledger Fabric), Data Analysis (SQL, Python, R), Full-stack development, UI/UX Design (Figma, Adobe XD). 
+ 
+Re-creational: Certified aerial Pole, Silks& Lyra (hoop) teacher, certified ballet student and teacher (technique). Certified Piano teacher 
+(Trinity exams).  
+ 
+ELECTIVES 
+—————————————————————————————————————————————————————————————— 
+Blockchain and cryptocurrencies, Digitalization and Privacy, Threat Model applications, Computational/Mathematical Biology, Biostatistics and 
+Informatics, Biological warfare systems applications, UI/UX and Innovation wireframing, Calculus and Symbolic Logic. 

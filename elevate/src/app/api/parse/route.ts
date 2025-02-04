@@ -1,3 +1,60 @@
+import fs from "fs";
+import path from "path";
+import pdfParse from "pdf-parse";
+import { NextRequest, NextResponse } from "next/server";
+
+
+console.log("✅ API route /api/parse is being registered...");
+
+export async function POST(req: NextRequest) {
+  console.log("✅ Received request to /api/parse");
+
+  try {
+    const body = await req.json();
+    console.log("📂 Received fileName:", body);
+
+    if (!body?.fileName) {
+      console.log("⚠️ Missing fileName in request body");
+      return NextResponse.json({ message: "Missing fileName" }, { status: 400 });
+    }
+
+    const filePath = path.join(process.cwd(), "public", "uploads", body.fileName);
+    console.log("🔍 Looking for file at:", filePath);
+
+    if (!fs.existsSync(filePath)) {
+      console.log("❌ File not found:", filePath);
+      return NextResponse.json({ message: "File not found" }, { status: 404 });
+    }
+
+    // Read and parse the PDF file
+    const fileBuffer = fs.readFileSync(filePath);
+    console.log("📄 File read successfully");
+
+    const data = await pdfParse(fileBuffer);
+    console.log("📝 Extracted text successfully");
+
+    // Save extracted text
+    const extractedDir = path.join(process.cwd(), "public", "extracted");
+    if (!fs.existsSync(extractedDir)) {
+      fs.mkdirSync(extractedDir, { recursive: true });
+    }
+
+    const extractedFilePath = path.join(extractedDir, `${body.fileName}.txt`);
+    fs.writeFileSync(extractedFilePath, data.text);
+    console.log("📁 Extracted text saved at:", extractedFilePath);
+
+    return NextResponse.json({ message: "Text extracted and saved successfully", extractedFilePath });
+  } catch (error) {
+    console.error("🚨 Error parsing PDF:", error);
+    return NextResponse.json({ message: "Failed to extract text from PDF" }, { status: 500 });
+  }
+}
+
+
+
+
+
+/*
 import fs from 'fs';
 import path from 'path';
 import pdfParse from 'pdf-parse';
@@ -36,7 +93,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-
+*/
 
 
 
