@@ -2,6 +2,79 @@ import fs from "fs";
 import path from "path";
 import pdfParse from "pdf-parse";
 import { NextRequest, NextResponse } from "next/server";
+import { processExtractedText } from "../clean/cleanText"; // Import the function for cleaning extracted text
+
+console.log("✅ API route /api/parse is being registered...");
+
+export async function POST(req: NextRequest) {
+  console.log("✅ Received request to /api/parse");
+
+  try {
+    // Step 1: Extract the body (should contain fileName)
+    const body = await req.json();
+    console.log("📂 Received fileName:", body);
+
+    // Check if fileName is present in the request body
+    if (!body?.fileName) {
+      console.log("⚠️ Missing fileName in request body");
+      return NextResponse.json({ message: "Missing fileName" }, { status: 400 });
+    }
+
+    // Step 2: Define the file path for the uploaded PDF file
+    const filePath = path.join(process.cwd(), "public", "uploads", body.fileName);
+    console.log("🔍 Looking for file at:", filePath);
+
+    // Check if the uploaded file exists
+    if (!fs.existsSync(filePath)) {
+      console.log("❌ File not found:", filePath);
+      return NextResponse.json({ message: "File not found" }, { status: 404 });
+    }
+
+    // Step 3: Read and parse the PDF file
+    const fileBuffer = fs.readFileSync(filePath);
+    console.log("📄 File read successfully");
+
+    const data = await pdfParse(fileBuffer);
+    console.log("📝 Extracted text successfully");
+
+    // Step 4: Save the extracted text to a file
+    const extractedDir = path.join(process.cwd(), "public", "extracted");
+    if (!fs.existsSync(extractedDir)) {
+      fs.mkdirSync(extractedDir, { recursive: true });
+    }
+
+    const extractedFilePath = path.join(extractedDir, `${body.fileName}.txt`);
+    fs.writeFileSync(extractedFilePath, data.text);
+    console.log("📁 Extracted text saved at:", extractedFilePath);
+
+    // Step 5: Clean the extracted text using `processExtractedText` from cleanText.ts
+    const structuredData = processExtractedText(body.fileName.replace('.pdf', '')); // Remove .pdf extension
+
+    // Check if cleaning was successful
+    if (!structuredData) {
+      return NextResponse.json({ message: "Failed to clean the extracted data" }, { status: 500 });
+    }
+
+    // Step 6: Return the cleaned data in the response
+    return NextResponse.json({
+      message: "Text extracted, cleaned, and saved successfully",
+      extractedFilePath,
+      structuredData
+    });
+    
+  } catch (error) {
+    console.error("🚨 Error parsing PDF:", error);
+    return NextResponse.json({ message: "Failed to extract and clean text from PDF" }, { status: 500 });
+  }
+}
+
+
+/*CURRENT WORKING PARSE FILE AS OF 4/2/25 */
+/* 
+import fs from "fs";
+import path from "path";
+import pdfParse from "pdf-parse";
+import { NextRequest, NextResponse } from "next/server";
 
 
 console.log("✅ API route /api/parse is being registered...");
@@ -49,7 +122,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Failed to extract text from PDF" }, { status: 500 });
   }
 }
-
+*/
 
 
 
