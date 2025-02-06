@@ -1,11 +1,9 @@
 import sys
 import json
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
+import re
 
 def extract_info(text):
-    doc = nlp(text)
+    # Define your regex patterns for each field
     extracted_data = {
         "name": None,
         "email": None,
@@ -14,15 +12,28 @@ def extract_info(text):
         "experience": []
     }
 
-    for ent in doc.ents:
-        if ent.label_ == "PERSON" and not extracted_data["name"]:
-            extracted_data["name"] = ent.text
-        elif ent.label_ == "EMAIL":
-            extracted_data["email"] = ent.text
-        elif ent.label_ == "PHONE":
-            extracted_data["phone"] = ent.text
+    # Example: Extract name (you can refine this based on your text structure)
+    name_match = re.search(r"(?:Name|Full Name):?\s*([A-Za-z\s]+)", text)
+    if name_match:
+        extracted_data["name"] = name_match.group(1).strip()
 
-    extracted_data["skills"] = [token.text for token in doc if token.pos_ == "NOUN"]
+    # Extract email (using a basic regex for emails)
+    email_match = re.search(r"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})", text)
+    if email_match:
+        extracted_data["email"] = email_match.group(1)
+
+    # Extract phone number (basic pattern)
+    phone_match = re.search(r"(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})", text)
+    if phone_match:
+        extracted_data["phone"] = phone_match.group(1)
+
+    # Extract skills (this assumes skills are listed, you might need to adjust)
+    skills_matches = re.findall(r"\b(?:Python|Java|JavaScript|C\+\+|SQL|Machine Learning|TensorFlow|PyTorch|etc)\b", text, re.IGNORECASE)
+    extracted_data["skills"] = list(set(skills_matches))  # Deduplicate the list
+
+    # Example for extracting work experience (you may need to refine based on your text format)
+    experience_matches = re.findall(r"(?:Experience|Work\s?History):?\s*([\s\S]+?)(?=\n\s*\n|\Z)", text)
+    extracted_data["experience"] = [exp.strip() for exp in experience_matches]
 
     return extracted_data
 

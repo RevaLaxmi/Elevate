@@ -1,0 +1,40 @@
+{
+    "Name": "Raspberry Pi",
+    "Email": "Reva.chauhan1@gmail.com",
+    "Phone": "9773639004",
+    "Education": [
+        "Bachelor of Science (Honors) in Computer Science,         Aug 2021 - March 2024"
+    ],
+    "Skills": [
+        "Python",
+        "Java",
+        "Machine Learning",
+        "SQL"
+    ],
+    "Projects": [
+        "Created and implemented real-time object detection and tracking systems. Using computer vision models like YOLO and DeepSORT,",
+        "Built an automated tool for cryptocurrency market analysis using Python and Selenium, reducing manual data extraction and",
+        "Designed and developed responsive websites from scratch, starting with sketches and wireframes in Figma and implementing them",
+        "Key Projects:",
+        "Designed and optimized a project connecting with MAVLink to compare MPC and PID methods for optimized flight control.",
+        "Created a real-time object detection and tracking system using  YOLO, DeepSORT, Kalman filters, and ORB keypoint detection.",
+        "Built an automated tool using selenium for a web scraper that creates and redirects cryptocurrency wallets, incorporating",
+        "Developed a secure patient-doctor privacy information management system using Hyperledger Fabric for blockchain integration and",
+        "cryptocurrencies for secure transactions. Designed and implemented front-end connections as well.",
+        "\u25cf Biotech research Project:",
+        "Implemented R and Python for a tracking algorithm regarding the population genetics of genetic disorders and the demographic",
+        "Created a system that keeps track of customer/admin users, edits bills/menu pricing, and allows alterations following the same.",
+        "\u25cf Valentine Fullstack development project:",
+        "Developed processes including automating GitHub accounts for code layers, designs using Figma, and converting designs to code.",
+        "Developed a responsive personal website using HTML, CSS, JavaScript, and animations."
+    ],
+    "Languages": {
+        "Spoken": [],
+        "Programming": [
+            "Python",
+            "JavaScript",
+            "Java",
+            "SQL"
+        ]
+    }
+}

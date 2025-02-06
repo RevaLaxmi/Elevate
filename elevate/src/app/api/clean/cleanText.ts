@@ -5,19 +5,19 @@ import path from "path";
 export const processExtractedText = (fileName: string) => {
     console.log(`🔍 Processing extracted text for: ${fileName}`);
 
-    const extractedPath = path.join(process.cwd(), "public", "extracted", `${fileName}.pdf.txt`);
+    const extractedTxtPath = path.join(process.cwd(), "public", "extracted", `${fileName}.pdf.txt`);
     const structuredPath = path.join(process.cwd(), "public", "structured_data", `${fileName}.json`);
     const pythonScriptPath = path.join(process.cwd(), "src", "app", "api", "clean", "process_resume.py");
 
-    if (!fs.existsSync(extractedPath)) {
-        console.error(`❌ Extracted file not found: ${extractedPath}`);
+    if (!fs.existsSync(extractedTxtPath)) {
+        console.error(`❌ Extracted text file not found: ${extractedTxtPath}`);
         return null;
     }
 
-    console.log(`📄 Running SpaCy NLP on extracted text...`);
+    console.log(`📄 Running PyResparser on extracted text...`);
 
     try {
-        const command = `python3 "${pythonScriptPath}" "${extractedPath}"`;
+        const command = `python3 "${pythonScriptPath}" "${extractedTxtPath}"`;
         const output = execSync(command).toString().trim();
 
         if (!output) {
@@ -34,10 +34,10 @@ export const processExtractedText = (fileName: string) => {
 
         fs.writeFileSync(structuredPath, JSON.stringify(jsonData, null, 2));
 
-        console.log("✅ Successfully extracted structured data using NLP.");
+        console.log("✅ Successfully extracted structured data using PyResparser.");
         return jsonData;
     } catch (error) {
-        console.error("❌ Error running SpaCy NLP script:", error);
+        console.error("❌ Error running PyResparser script:", error);
         return null;
     }
 };
