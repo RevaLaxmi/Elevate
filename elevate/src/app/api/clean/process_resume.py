@@ -1,9 +1,7 @@
-"""
-import spacy
 import sys
 import json
+import spacy
 
-# Load SpaCy NLP model
 nlp = spacy.load("en_core_web_sm")
 
 def extract_info(text):
@@ -16,7 +14,6 @@ def extract_info(text):
         "experience": []
     }
 
-    # Extract email and phone
     for ent in doc.ents:
         if ent.label_ == "PERSON" and not extracted_data["name"]:
             extracted_data["name"] = ent.text
@@ -25,19 +22,24 @@ def extract_info(text):
         elif ent.label_ == "PHONE":
             extracted_data["phone"] = ent.text
 
-    # Extract skills (basic example)
     extracted_data["skills"] = [token.text for token in doc if token.pos_ == "NOUN"]
 
     return extracted_data
 
 if __name__ == "__main__":
-    input_file = sys.argv[1]  # Read input file path from command-line argument
+    try:
+        input_file = sys.argv[1]
+        with open(input_file, "r", encoding="utf-8") as f:
+            text = f.read()
 
-    with open(input_file, "r", encoding="utf-8") as f:
-        text = f.read()
+        if not text.strip():
+            raise ValueError("Empty text file. No data to process.")
 
-    extracted_data = extract_info(text)
+        extracted_data = extract_info(text)
 
-    # Print JSON output (this is captured by `execSync` in TypeScript)
-    print(json.dumps(extracted_data, indent=2))
-"""
+        # Ensure valid JSON output
+        print(json.dumps(extracted_data, indent=2))
+
+    except Exception as e:
+        error_message = {"error": str(e)}
+        print(json.dumps(error_message))
