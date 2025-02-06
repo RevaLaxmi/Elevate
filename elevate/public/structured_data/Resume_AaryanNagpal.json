@@ -1,0 +1,117 @@
+{
+  "name": "Unknown",
+  "email": "aaryan.nagpal_asp25@ashoka.edu.in",
+  "phone": "9599799022",
+  "nationality": "Unknown",
+  "location": "Unknown",
+  "linkedin": "Not Found",
+  "github": "Not Found",
+  "website": "Not Found",
+  "professional_summary": "Not Found",
+  "employment_history": [
+    {
+      "company": "Unknown",
+      "duration": "Unknown",
+      "job_title": "Unknown",
+      "responsibilities": []
+    },
+    {
+      "company": "Unknown",
+      "duration": "Unknown",
+      "job_title": "Unknown",
+      "responsibilities": []
+    },
+    {
+      "company": "Unknown",
+      "duration": "Unknown",
+      "job_title": "Unknown",
+      "responsibilities": []
+    },
+    {
+      "company": "Unknown",
+      "duration": "Unknown",
+      "job_title": "Unknown",
+      "responsibilities": []
+    },
+    {
+      "company": "Unknown",
+      "duration": "Unknown",
+      "job_title": "Patient Care Pathway Analysis (Capstone Research Project) - Data Science And Healthcare",
+      "responsibilities": [
+        "Collaborating with Prof. Lipika Dey to analyze high-dimensional MIMIC-IV EHR data, creating dynamic patient-specific treatment",
+        "visualizations, and identifying key predictive features to improve early disease detection for further research in personalized healthcare.",
+        "Leveraging machine learning algorithms to model ideal patient behavior, providing insights for optimized care in cases of deviation.",
+        "Developing parsing modules for processing multi-structured EHRs, facilitating automated extraction of critical medical information.",
+        "Health Information Chatbot - Natural Language Processing and Healthcare",
+        "Engineering a Health Information Retrieval Chatbot with Prof. Anirban Sen (Ph D, IIT Delhi) using LLa MA 3.1 8B for medical experts.",
+        "Extracting data from health databases and large corpora to develop a comprehensive knowledge graph for efficient information retrieval.",
+        "Constructing a Neo4j-based graph database to host the knowledge graph with similarity-based features to enhance retrieval accuracy.",
+        "Ag Bot - Robotics",
+        "Developed a mobile robot using Python and C++ on Arduino UNO, ESP32, and Raspberry Pi for agricultural research. Project Link",
+        "Designed and implemented a socket-based network for concurrent data transfer between server and client bots via Bluetooth and Wi-Fi.",
+        "Analyzed the collected data to provide insights into soil quality and environmental factors for decision-making in farming projects."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "P.G.D In Ashoka Scholars Programashoka University2025/4 Cgpa",
+      "university": "B.Sc (Hons) in Computer ScienceAshoka UniversityAshoka University20243.65 /4 CGPA",
+      "cgpa": "P.G.D in Ashoka Scholars ProgramAshoka University2025/4 CGPA"
+    },
+    {
+      "degree": "Technical Proficiencymachine Learning,Python3,Tensorflow,Keras,Pandas,Numpy,Rust,Git,C Programming,Django Rest",
+      "university": "HP INDIA | Software Developer InternJun 2022 - Nov 2024",
+      "cgpa": "Not Found"
+    },
+    {
+      "degree": "Optimized An Audit Co-Pilot Using Tensorflow, Huggingface Models, And Bert, Boosting Performance By 30% Through Automating The",
+      "university": "audit process for 100+ customer call transcripts by streamlining tasks such as translation, emotional analysis, and similarity analysis.",
+      "cgpa": "Not Found"
+    },
+    {
+      "degree": "Contributed To Developing Python-Flask-Based Retrieval System To Automate Data Extraction And Updating For Json-Formatted Databases,",
+      "university": "enhancing performance by 35% by digitizing the manual assembly documentation process for HP products and reducing processing time.",
+      "cgpa": "Not Found"
+    },
+    {
+      "degree": "Implemented An Nlp-Based Query System Using Graphdb And Openai, Enabling Efficient Access To Indian Food Information From A",
+      "university": "comprehensive knowledge graph for intelligent health, location, and finance-focused personal food consumption decision-making.",
+      "cgpa": "Not Found"
+    },
+    {
+      "degree": "Automated Messaging-Based Data Retrieveal Tasks From Cli Inputs Using Boto For Zulip Bots, Increasing Automation Capabilities By 20%.",
+      "university": "Developed and tested Python-based querying functions to ensure optimal performance and reliability within the Zulip application.",
+      "cgpa": "Not Found"
+    },
+    {
+      "degree": "Redesigned Message And Argument Parsing From Cli To Zulip Bots, Implementing Formatting To Streamline Automation Processes.",
+      "university": "Unknown",
+      "cgpa": "Not Found"
+    }
+  ],
+  "projects": [
+    "Jan 2024 - May 2024\nSep 2022 - Aug 2023\nSep 2022 - Aug 2023\nTeaching Assistant | 1/50 selected | Ashoka University\nFacilitated learning under Prof. Anirban Sen (PhD, IIT Delhi) for a class of 50+ students, focusing on algorithm design and analysis.\nImplemented a grading rubric, assessed student performance, and led office hours and discussion sessions to guide student understanding.\nVice President | Founded | Special Olympics Bharat Ashoka Chapter\nLed a team of 20+ students to launch a sports awareness campaign for children with special needs, collaborating with schools in Sonipat.\nOrchestrated 5+ events for 100+ special needs children, including sports day celebrations, engaging 30+ volunteers & 100+ attendees.\nVice President | 1/20 selected | Ashoka Orators Club\nDirected a team of 50+ members to create a speaking community of 300+ students on campus, executing events, and oration sessions.\nSpearheaded 5+ events for students and faculty, such as the Faculty Debate & Student Speaker Series, attracting 200+ students per event."
+  ],
+  "positions_held": [
+    "2024\n2024\nCum Laude | Ashoka University\nEarned Cum Laude honors for exceptional academic achievement across semesters, awarded for maintaining a CGPA above 3.65.\nTeaching Assistantship Excellence Award | Ashoka University\nCommended for outstanding teaching assistance and student mentorship, selected from 30 TAs, by securing 5/5 student evaluation score.\nAWARDS AND ACCOMPLISHMENTS"
+  ],
+  "skills": [
+    "Not Found"
+  ],
+  "languages": [
+    "Not Found"
+  ],
+  "awards": [
+    "Not Found"
+  ],
+  "extracurriculars": [
+    "Not Found"
+  ],
+  "certifications": [
+    "Not Found"
+  ],
+  "publications": [
+    "Not Found"
+  ]
+}
